@@ -1,0 +1,19 @@
+Error: segmentation violation
+   rax 0000000000000000, rbx ffffffffffffffff, rcx 0000147b971bc777
+   rdx 0000000000001ae5, rsp 00007ffec06cd5a8, rbp 00007ffec06cdb20
+   rsi 000000000000000b, rdi 0000000000001ae5, r8  0000000000000020
+   r9  00007ffec06cccc0, r10 000000000000022d, r11 0000000000000202
+   r12 00007ffec06cdb68, r13 0000000000000000, r14 0000000000000000
+   r15 00000000000003e6
+  /lib/x86_64-linux-gnu/libpthread.so.0(+0x11390) [0x147b9786b390]
+  /lib/x86_64-linux-gnu/libc.so.6(kill+0x7) [0x147b971bc777]
+  /share/apps/g16.a03/g16/l502.exe() [0x461470]
+  /share/apps/g16.a03/g16/l502.exe() [0x482791]
+  /share/apps/g16.a03/g16/l502.exe() [0x4fac81]
+  /share/apps/g16.a03/g16/l502.exe() [0x4dac99]
+  /share/apps/g16.a03/g16/l502.exe() [0x4104cd]
+  /share/apps/g16.a03/g16/l502.exe() [0x403a40]
+  /share/apps/g16.a03/g16/l502.exe() [0x40397d]
+  /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0) [0x147b971a7840]
+  /share/apps/g16.a03/g16/l502.exe(sched_setaffinity+0xa1) [0x4038a9]
+Aborted (core dumped)

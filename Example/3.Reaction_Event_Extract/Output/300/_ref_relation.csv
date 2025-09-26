@@ -1,0 +1,3 @@
+,reaction,relation
+0,[H]OCl->Cl+[H]O,"[('[H][O][Cl]', '[H][O]'), ('[H][O][Cl]', '[Cl]')]"
+1,[H]O+[H]OCl->OCl+[H]O[H],"[('[H][O][Cl]', '[O][Cl]'), ('[H][O][Cl]', '[H][O][H]'), ('[H][O]', '[H][O][H]')]"

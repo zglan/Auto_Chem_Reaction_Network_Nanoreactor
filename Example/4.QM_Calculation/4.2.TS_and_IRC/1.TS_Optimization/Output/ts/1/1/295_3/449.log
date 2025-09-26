@@ -1,0 +1,239 @@
+ Entering Gaussian System, Link 0=g16
+ Input=ts.gjf
+ Output=ts.log
+ Initial command:
+ /share/apps/g16.a03/g16/l1.exe "/tmp/Gau-6591.inp" -scrdir="/tmp/"
+ Entering Link 1 = /share/apps/g16.a03/g16/l1.exe PID=      6593.
+  
+ Copyright (c) 1988,1990,1992,1993,1995,1998,2003,2009,2016,
+            Gaussian, Inc.  All Rights Reserved.
+  
+ This is part of the Gaussian(R) 16 program.  It is based on
+ the Gaussian(R) 09 system (copyright 2009, Gaussian, Inc.),
+ the Gaussian(R) 03 system (copyright 2003, Gaussian, Inc.),
+ the Gaussian(R) 98 system (copyright 1998, Gaussian, Inc.),
+ the Gaussian(R) 94 system (copyright 1995, Gaussian, Inc.),
+ the Gaussian 92(TM) system (copyright 1992, Gaussian, Inc.),
+ the Gaussian 90(TM) system (copyright 1990, Gaussian, Inc.),
+ the Gaussian 88(TM) system (copyright 1988, Gaussian, Inc.),
+ the Gaussian 86(TM) system (copyright 1986, Carnegie Mellon
+ University), and the Gaussian 82(TM) system (copyright 1983,
+ Carnegie Mellon University). Gaussian is a federally registered
+ trademark of Gaussian, Inc.
+  
+ This software contains proprietary and confidential information,
+ including trade secrets, belonging to Gaussian, Inc.
+  
+ This software is provided under written license and may be
+ used, copied, transmitted, or stored only in accord with that
+ written license.
+  
+ The following legend is applicable only to US Government
+ contracts under FAR:
+  
+                    RESTRICTED RIGHTS LEGEND
+  
+ Use, reproduction and disclosure by the US Government is
+ subject to restrictions as set forth in subparagraphs (a)
+ and (c) of the Commercial Computer Software - Restricted
+ Rights clause in FAR 52.227-19.
+  
+ Gaussian, Inc.
+ 340 Quinnipiac St., Bldg. 40, Wallingford CT 06492
+  
+  
+ ---------------------------------------------------------------
+ Warning -- This program may not be used in any manner that
+ competes with the business of Gaussian, Inc. or will provide
+ assistance to any competitor of Gaussian, Inc.  The licensee
+ of this program is prohibited from giving any competitor of
+ Gaussian, Inc. access to this program.  By using this program,
+ the user acknowledges that Gaussian, Inc. is engaged in the
+ business of creating and licensing software in the field of
+ computational chemistry and represents and warrants to the
+ licensee that it is not a competitor of Gaussian, Inc. and that
+ it will not use this program in any manner prohibited above.
+ ---------------------------------------------------------------
+  
+
+ Cite this work as:
+ Gaussian 16, Revision A.03,
+ M. J. Frisch, G. W. Trucks, H. B. Schlegel, G. E. Scuseria, 
+ M. A. Robb, J. R. Cheeseman, G. Scalmani, V. Barone, 
+ G. A. Petersson, H. Nakatsuji, X. Li, M. Caricato, A. V. Marenich, 
+ J. Bloino, B. G. Janesko, R. Gomperts, B. Mennucci, H. P. Hratchian, 
+ J. V. Ortiz, A. F. Izmaylov, J. L. Sonnenberg, D. Williams-Young, 
+ F. Ding, F. Lipparini, F. Egidi, J. Goings, B. Peng, A. Petrone, 
+ T. Henderson, D. Ranasinghe, V. G. Zakrzewski, J. Gao, N. Rega, 
+ G. Zheng, W. Liang, M. Hada, M. Ehara, K. Toyota, R. Fukuda, 
+ J. Hasegawa, M. Ishida, T. Nakajima, Y. Honda, O. Kitao, H. Nakai, 
+ T. Vreven, K. Throssell, J. A. Montgomery, Jr., J. E. Peralta, 
+ F. Ogliaro, M. J. Bearpark, J. J. Heyd, E. N. Brothers, K. N. Kudin, 
+ V. N. Staroverov, T. A. Keith, R. Kobayashi, J. Normand, 
+ K. Raghavachari, A. P. Rendell, J. C. Burant, S. S. Iyengar, 
+ J. Tomasi, M. Cossi, J. M. Millam, M. Klene, C. Adamo, R. Cammi, 
+ J. W. Ochterski, R. L. Martin, K. Morokuma, O. Farkas, 
+ J. B. Foresman, and D. J. Fox, Gaussian, Inc., Wallingford CT, 2016.
+ 
+ ******************************************
+ Gaussian 16:  EM64L-G16RevA.03 25-Dec-2016
+                 6-Mar-2025 
+ ******************************************
+ %nproc=8
+ Will use up to    8 processors via shared memory.
+ %mem=4000MB
+ --------------------------------------------------------------------
+ #opt=(noeigen,calcfc,ts,recalc=5,maxcyc=200) freq B3LYP/SVP em=GD3BJ
+ --------------------------------------------------------------------
+ 1/5=1,6=200,10=4,11=1,18=20,26=3,38=1,71=5/1,3;
+ 2/9=110,12=2,17=6,18=5,40=1/2;
+ 3/5=18,7=101,11=2,25=1,30=1,71=2,74=-5,124=41,140=1/1,2,3;
+ 4//1;
+ 5/5=2,38=5/2;
+ 8/6=4,10=90,11=11/1;
+ 11/6=1,8=1,9=11,15=111,16=1/1,2,10;
+ 10/6=1,13=1/2;
+ 6/7=2,8=2,9=2,10=2,28=1/1;
+ 7/10=1,18=20,25=1/1,2,3,16;
+ 1/5=1,6=200,10=4,11=1,18=20,26=3,71=5/3(2);
+ 2/9=110/2;
+ 99//99;
+ 2/9=110/2;
+ 3/5=18,7=101,11=2,25=1,30=1,71=1,74=-5,124=41/1,2,3;
+ 4/5=5,16=3,69=1/1;
+ 5/5=2,38=5/2;
+ 7//1,2,3,16;
+ 1/5=1,6=200,11=1,18=20,26=3,71=5/3(-5);
+ 2/9=110/2;
+ 6/7=2,8=2,9=2,10=2,19=2,28=1/1;
+ 99/9=1/99;
+ ----------
+ ts-449.gjf
+ ----------
+ Symbolic Z-matrix:
+ Charge =  0 Multiplicity = 1
+ O                     3.68003  -6.77123   1.65752 
+ Cl                    1.41571  -0.68275   3.3089 
+ H                     3.4967   -6.94217   2.61145 
+ 
+ Add virtual bond connecting atoms O1         and Cl2        Dist= 1.27D+01.
+ Add virtual bond connecting atoms H3         and Cl2        Dist= 1.25D+01.
+
+ GradGradGradGradGradGradGradGradGradGradGradGradGradGradGradGradGradGrad
+ Berny optimization.
+ Initialization pass.
+                           ----------------------------
+                           !    Initial Parameters    !
+                           ! (Angstroms and Degrees)  !
+ --------------------------                            --------------------------
+ ! Name  Definition              Value          Derivative Info.                !
+ --------------------------------------------------------------------------------
+ ! R1    R(1,2)                  6.7025         calculate D2E/DX2 analytically  !
+ ! R2    R(1,3)                  0.9863         calculate D2E/DX2 analytically  !
+ ! R3    R(2,3)                  6.633          calculate D2E/DX2 analytically  !
+ --------------------------------------------------------------------------------
+ Trust Radius=3.00D-01 FncErr=1.00D-07 GrdErr=1.00D-06 EigMax=2.50D+02 EigMin=1.00D-04
+ Number of steps in this run=    100 maximum allowed number of steps=    100.
+ Search for a saddle point of order  1.
+ GradGradGradGradGradGradGradGradGradGradGradGradGradGradGradGradGradGrad
+
+                          Input orientation:                          
+ ---------------------------------------------------------------------
+ Center     Atomic      Atomic             Coordinates (Angstroms)
+ Number     Number       Type             X           Y           Z
+ ---------------------------------------------------------------------
+      1          8           0        3.680030   -6.771231    1.657523
+      2         17           0        1.415706   -0.682746    3.308903
+      3          1           0        3.496704   -6.942167    2.611454
+ ---------------------------------------------------------------------
+                    Distance matrix (angstroms):
+                    1          2          3
+     1  O    0.000000
+     2  Cl   6.702528   0.000000
+     3  H    0.986312   6.633049   0.000000
+ Stoichiometry    ClHO
+ Framework group  CS[SG(ClHO)]
+ Deg. of freedom     3
+ Full point group                 CS      NOp   2
+ Largest Abelian subgroup         CS      NOp   2
+ Largest concise Abelian subgroup C1      NOp   1
+                         Standard orientation:                         
+ ---------------------------------------------------------------------
+ Center     Atomic      Atomic             Coordinates (Angstroms)
+ Number     Number       Type             X           Y           Z
+ ---------------------------------------------------------------------
+      1          8           0        0.037542    4.387872    0.000000
+      2         17           0        0.037542   -2.314656   -0.000000
+      3          1           0       -0.938540    4.246183    0.000000
+ ---------------------------------------------------------------------
+ Rotational constants (GHZ):         558.1546146           0.9857074           0.9839697
+ Standard basis: SVP (5D, 7F)
+ There are    29 symmetry adapted cartesian basis functions of A'  symmetry.
+ There are    10 symmetry adapted cartesian basis functions of A"  symmetry.
+ There are    27 symmetry adapted basis functions of A'  symmetry.
+ There are    10 symmetry adapted basis functions of A"  symmetry.
+    37 basis functions,    69 primitive gaussians,    39 cartesian basis functions
+    13 alpha electrons       13 beta electrons
+       nuclear repulsion energy        16.3858670037 Hartrees.
+ NAtoms=    3 NActive=    3 NUniq=    3 SFac= 1.00D+00 NAtFMM=   60 NAOKFM=F Big=F
+ Integral buffers will be    131072 words long.
+ Raffenetti 2 integral format.
+ Two-electron integral symmetry is turned on.
+ Nuclear repulsion after empirical dispersion term =       16.3856047197 Hartrees.
+ One-electron integrals computed using PRISM.
+ NBasis=    37 RedAO= T EigKep=  5.65D-02  NBF=    27    10
+ NBsUse=    37 1.00D-06 EigRej= -1.00D+00 NBFU=    27    10
+ ExpMin= 1.22D-01 ExpMax= 1.04D+04 ExpMxC= 1.57D+03 IAcc=3 IRadAn=         5 AccDes= 0.00D+00
+ Harris functional with IExCor=  402 and IRadAn=       5 diagonalized for initial guess.
+ HarFok:  IExCor=  402 AccDes= 0.00D+00 IRadAn=         5 IDoV= 1 UseB2=F ITyADJ=14
+ ICtDFT=  3500011 ScaDFX=  1.000000  1.000000  1.000000  1.000000
+ FoFCou: FMM=F IPFlag=           0 FMFlag=      100000 FMFlg1=           0
+         NFxFlg=           0 DoJE=T BraDBF=F KetDBF=T FulRan=T
+         wScrn=  0.000000 ICntrl=       500 IOpCl=  0 I1Cent=   200000004 NGrid=           0
+         NMat0=    1 NMatS0=      1 NMatT0=    0 NMatD0=    1 NMtDS0=    0 NMtDT0=    0
+ Petite list used in FoFCou.
+ Initial guess orbital symmetries:
+       Occupied  (A') (A') (A') (A") (A') (A') (A') (A') (A') (A')
+                 (A") (A') (A')
+       Virtual   (A") (A') (A') (A') (A") (A') (A") (A') (A') (A')
+                 (A') (A") (A') (A") (A') (A') (A') (A") (A') (A")
+                 (A') (A') (A") (A')
+ The electronic state of the initial guess is 1-A'.
+ Keep R1 ints in memory in symmetry-blocked form, NReq=7153137.
+ Requested convergence on RMS density matrix=1.00D-08 within 128 cycles.
+ Requested convergence on MAX density matrix=1.00D-06.
+ Requested convergence on             energy=1.00D-06.
+ No special actions if energy rises.
+ Integral accuracy reduced to 1.0D-05 until final iterations.
+ EnCoef did   100 forward-backward iterations
+ EnCoef did   100 forward-backward iterations
+ Rare condition: small coef for last iteration:  0.000D+00
+ Rare condition: small coef for last iteration:  0.000D+00
+ EnCoef did   100 forward-backward iterations
+ Problem detected with inexpensive integrals.
+ Switching to full accuracy and repeating last cycle.
+ EnCoef did   100 forward-backward iterations
+ Rare condition: small coef for last iteration:  0.000D+00
+ EnCoef did   100 forward-backward iterations
+ Rare condition: small coef for last iteration:  0.000D+00
+ EnCoef did   100 forward-backward iterations
+ Rare condition: small coef for last iteration:  0.000D+00
+ EnCoef did   100 forward-backward iterations
+ Rare condition: small coef for last iteration:  0.000D+00
+ EnCoef did   100 forward-backward iterations
+ Rare condition: small coef for last iteration:  0.000D+00
+ EnCoef did   100 forward-backward iterations
+ Rare condition: small coef for last iteration:  0.000D+00
+ EnCoef did   100 forward-backward iterations
+ Rare condition: small coef for last iteration:  0.000D+00
+ EnCoef did   100 forward-backward iterations
+ Rare condition: small coef for last iteration:  0.229D-17
+ Density matrix is not changing but DIIS error= 6.25D-02 CofLast= 5.25D-05.
+ >>>>>>>>>> Convergence criterion not met.
+ SCF Done:  E(RB3LYP) =  -535.097878839     A.U. after  129 cycles
+            NFock=128  Conv=0.64D-01     -V/T= 2.0041
+ Convergence failure -- run terminated.
+ Error termination via Lnk1e in /share/apps/g16.a03/g16/l502.exe at Thu Mar  6 16:39:17 2025.
+ Job cpu time:       0 days  0 hours  0 minutes 23.2 seconds.
+ Elapsed time:       0 days  0 hours  0 minutes  2.9 seconds.
+ File lengths (MBytes):  RWF=      6 Int=      0 D2E=      0 Chk=      1 Scr=      1
