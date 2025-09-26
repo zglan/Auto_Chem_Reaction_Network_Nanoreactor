@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-# Auto_Chem_Reaction_Network_Nanoreactor
-=======
+
 <h1 align="center"> Automated Exploration of Reaction Network and Mechanism
 
 
@@ -1169,5 +1167,6 @@ sampling      # Directory
 ├─reac_Event_Network.png
 ├─reac_main_eve.log
 └─grid_draw.py
+
 ```
 >>>>>>> master
