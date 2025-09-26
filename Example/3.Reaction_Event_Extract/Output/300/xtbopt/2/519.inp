@@ -1,0 +1,11 @@
+
+$chrg 0
+$spin 1
+$scc 
+   maxiterations=800
+   temp=6000.0000000000000
+   broydamp=.4000000000000000
+$write
+   wiberg=true
+   charges=true
+$end

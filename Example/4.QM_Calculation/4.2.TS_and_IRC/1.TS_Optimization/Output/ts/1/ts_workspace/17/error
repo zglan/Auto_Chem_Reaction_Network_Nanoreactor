@@ -1,0 +1,18 @@
+Error: segmentation violation
+   rax 0000000000000000, rbx ffffffffffffffff, rcx 000014ec0e6f5777
+   rdx 0000000000005ed2, rsp 00007ffe5b50c398, rbp 00007ffe5b50c910
+   rsi 000000000000000b, rdi 0000000000005ed2, r8  0000000000000020
+   r9  00007ffe5b50bab0, r10 000000000000022d, r11 0000000000000202
+   r12 00007ffe5b50c958, r13 0000000000000000, r14 0000000000000000
+   r15 00000000000003e6
+  /lib/x86_64-linux-gnu/libpthread.so.0(+0x11390) [0x14ec0eda4390]
+  /lib/x86_64-linux-gnu/libc.so.6(kill+0x7) [0x14ec0e6f5777]
+  /share/apps/g16.a03/g16/l9999.exe() [0x43c650]
+  /share/apps/g16.a03/g16/l9999.exe() [0x452931]
+  /share/apps/g16.a03/g16/l9999.exe() [0x4821d1]
+  /share/apps/g16.a03/g16/l9999.exe() [0x475ea9]
+  /share/apps/g16.a03/g16/l9999.exe() [0x40846e]
+  /share/apps/g16.a03/g16/l9999.exe() [0x403a90]
+  /share/apps/g16.a03/g16/l9999.exe(sched_setaffinity+0x16d) [0x4039cd]
+  /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0) [0x14ec0e6e0840]
+  /share/apps/g16.a03/g16/l9999.exe(sched_setaffinity+0x99) [0x4038f9]

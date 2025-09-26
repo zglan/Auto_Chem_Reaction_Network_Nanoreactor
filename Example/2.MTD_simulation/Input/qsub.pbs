@@ -1,0 +1,6 @@
+#PBS -N mtd 
+#PBS -j oe
+#PBS -q queue_name
+#PBS -l nodes=node_id:ppn=node_number
+
+xtb --md --input mtd.inp *.xyz > log

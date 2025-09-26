@@ -1,0 +1,3 @@
+,reaction,atom-idx,start-to-end,time
+0,[H]OCl->Cl+[H]O,"[36, 37, 38]","(189, 247)",219
+1,[H]O+[H]OCl->OCl+[H]O[H],"[33, 34, 35, 36, 38]","(499, 557)",529

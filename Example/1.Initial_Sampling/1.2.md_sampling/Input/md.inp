@@ -1,0 +1,21 @@
+$chrg 0
+$spin 0
+$cma
+$scc
+   maxiterations=800
+   temp=6000.0000000000000
+   broydamp=.4000000000000000
+$md
+   temp=280.00000000000
+   time=30.0000000000000
+   dump=100.00000000000000
+   step=0.500000000000000
+   hmass=1
+   shake=2
+   sccacc=2.000000000000000
+$wall
+   potential=logfermi
+   beta=1.0
+   temp=1500.0
+   sphere: 15.0, all
+$end

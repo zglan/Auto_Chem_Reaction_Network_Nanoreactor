@@ -1,0 +1,21 @@
+Error: segmentation violation
+   rax 0000000000000000, rbx ffffffffffffffff, rcx 0000153b6fb33777
+   rdx 0000000000003718, rsp 00007ffce4f34ca8, rbp 00007ffce4f35220
+   rsi 000000000000000b, rdi 0000000000003718, r8  0000000000000020
+   r9  00007ffce4f343c0, r10 000000000000022d, r11 0000000000000202
+   r12 00007ffce4f35268, r13 0000000000000000, r14 0000000000000000
+   r15 00000000000003e6
+  /lib/x86_64-linux-gnu/libpthread.so.0(+0x11390) [0x153b701e2390]
+  /lib/x86_64-linux-gnu/libc.so.6(kill+0x7) [0x153b6fb33777]
+  /share/apps/g16.a03/g16/l103.exe() [0x45a050]
+  /share/apps/g16.a03/g16/l103.exe() [0x471611]
+  /share/apps/g16.a03/g16/l103.exe() [0x49fe91]
+  /share/apps/g16.a03/g16/l103.exe() [0x48fd69]
+  /share/apps/g16.a03/g16/l103.exe() [0x5024eb]
+  /share/apps/g16.a03/g16/l103.exe() [0x48f412]
+  /share/apps/g16.a03/g16/l103.exe() [0x40ad80]
+  /share/apps/g16.a03/g16/l103.exe() [0x403a47]
+  /share/apps/g16.a03/g16/l103.exe() [0x40397d]
+  /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0) [0x153b6fb1e840]
+  /share/apps/g16.a03/g16/l103.exe(sched_setaffinity+0xa1) [0x4038a9]
+Aborted (core dumped)
