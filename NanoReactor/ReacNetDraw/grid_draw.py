@@ -22,9 +22,10 @@ def format_chemical_formula(formula):
     return re.sub(r'\d+', lambda m: ''.join(subs[int(d)] for d in m.group()), formula)
 
 def drawGrid(mols, legends, img_name='', img_size=(1500, 900), font_size=150):
-    nRows = len(mols) // molsPerRow
-    if len(mols) % molsPerRow:
-        nRows += 1
+    # nRows = len(mols) // molsPerRow
+    # if len(mols) % molsPerRow:
+    #     nRows += 1
+    nRows = 10
     fullSize = (molsPerRow * img_size[0], nRows * img_size[1])
     d2d = rdMolDraw2D.MolDraw2DSVG(fullSize[0], fullSize[1], img_size[0], img_size[1])
     # d2d.drawOptions().maxFontSize = 50
@@ -48,6 +49,7 @@ def drawGrid(mols, legends, img_name='', img_size=(1500, 900), font_size=150):
 
     # change legend no work
     # formatted_legends = [format_chemical_formula(legend) for legend in legends]
+
     d2d.DrawMolecules(mols, legends=legends)
     
     d2d.FinishDrawing()
@@ -60,8 +62,10 @@ def getMolsLegends(smis, group=0):
     legends = []
     atom_nums = []
     for idx, smi in enumerate(smis):
-        atom_nums.append(len(re.findall("[a-zA-Z]", smi)))
+        # atom_nums.append(len(re.findall("[a-zA-Z]", smi)))        # [a-zA-Z] can not deal with the situation like Ca.
         mol = Chem.MolFromSmiles(smi)
+        atom_count = mol.GetNumAtoms()          # atom numbers obtained by rdkit
+        atom_nums.append(atom_count)
         if isinstance(mol, Chem.rdchem.Mol):
             legend = CalcMolFormula(mol)
             mols.append(mol)
@@ -87,15 +91,66 @@ def judgeImgSize(max_atom_nums):
     elif max_atom_nums <= 60:
         subImgSize = (2000, 1300)
         legendFontSize = 300
+    elif max_atom_nums <= 200:
+        subImgSize = (3000, 2500)
+        legendFontSize = 300
     print(f' * Sub-Grid Image Size:  {subImgSize}')
     return subImgSize, legendFontSize
 
 
 smi_dict, smi_list, idx_rela_list, filter_smi_dict \
-    = anylseMD(freq_criter=2, NC_range=None, Natom_range=None)
+    = anylseMD(freq_criter=0, NC_range=None, Natom_range=[0,20])
 
 # smi_dict.update(d2)
 # del smi_dict['key']
+
+"""Remove SMILES with incorrect atomic valence bonds"""
+def standardize_smiles(smiles):
+    try:
+        mol = Chem.MolFromSmiles(smiles)
+        if mol:
+            return smiles
+    except:
+        return None 
+
+smi_dict_new = {}
+idx = 1
+for smi in smi_dict.keys():
+    standardized = standardize_smiles(smi)
+    if standardized:
+        smi_dict_new[standardized] = idx
+        idx = idx + 1
+
+idx_mapping = {}
+remove_idx = []
+remove_smiles = []
+for smiles, old_idx in smi_dict.items():
+    if smiles in smi_dict_new.keys():
+          new_idx = smi_dict_new[smiles]
+          idx_mapping[old_idx] = new_idx
+    else:
+         remove_idx.append(old_idx)
+         remove_smiles.append(smiles)
+
+smi_list_new = []
+for smi in smi_list:
+    if smi not in remove_smiles:
+        smi_list_new.append(smi)
+
+idx_rela_list_new = []
+for le, re in idx_rela_list:
+     if le in remove_idx or re in remove_idx:
+          pass
+     else:
+          le_new = idx_mapping[le]
+          re_new = idx_mapping[re]
+          idx_rela_list_new.append((le_new, re_new))
+
+smi_dict = smi_dict_new
+smi_list = smi_list_new
+idx_rela_list = idx_rela_list_new
+
+
 
 from _network import ReacEveNet
 R = ReacEveNet(smi_dict, smi_list, idx_rela_list)
@@ -104,7 +159,8 @@ R.drawNet()
 
 
 molsPerRow = 8
-maxImgNum = molsPerRow * 16
+# maxImgNum = molsPerRow * 16
+maxImgNum = molsPerRow * 10
 
 tot_smis = [smi for smi in smi_dict.keys()]
 if len(tot_smis) > maxImgNum:
