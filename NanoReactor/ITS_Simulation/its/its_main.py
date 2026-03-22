@@ -51,7 +51,7 @@ class ITS:
                  temp_high: float,
                  bin_temp: int,
                  update_step: int = 500):
-        self.kb = 1.380649e-23 / 4.3597447222071e-18   # a.u. / K
+        self.kb = kb_au   # a.u. / K
         self.T_target = T_target
         self.beta_target = 1 / (self.kb * self.T_target)
 
@@ -77,44 +77,19 @@ class ITS:
         self.S_list = []
 
     def its_update(self):
-        # print(self.lnPk)
-        # print(f"Pk: {np.exp(self.lnPk)}")
         self.lnPk_norm = self.lnPk - logsumexp(self.lnPk)
-        # exit()
-        # print(f"lnPk_norm: {self.lnPk_norm }")
-        # print(np.exp(self.lnPk_norm))
-        # exit()
         lnmk = self.lnnk[:-1] - self.lnnk[1:]
-        # print(f"lnmk: {lnmk}")
-        # print(np.exp(lnmk))
-        # exit()
         ln_w = 0.5 * (self.lnPk_norm[1:] + self.lnPk_norm[:-1])
-        # print(np.exp(ln_w))
-        # exit()
         ln_Pk_norm_ratio = self.lnPk_norm[1:] - self.lnPk_norm[:-1]
-        # print(np.exp(ln_Pk_norm_ratio))
-        # exit()
         lnw_norm = np.logaddexp(self.lnWk, ln_w)
-        # print(np.exp(lnw_norm))
-        # exit()
         lnwbias = self.ln_bias + ln_w
-        # print(np.exp(lnwbias))
-        # exit()
         lnwbias_norm = np.logaddexp(self.lnWk, lnwbias)
-        # print(np.exp(lnwbias_norm))
-        # exit()
         lnmk_new = lnmk + np.logaddexp(lnwbias + ln_Pk_norm_ratio, self.lnWk) - lnwbias_norm
-        # print(np.exp(lnmk_new))
-        # exit()
         lnnk_new = [0.]
         for i in range(len(self.lnnk)-1):
             lnnk_temp = lnnk_new[i] - lnmk_new[i]
-            # lnnk_temp = lnnk_new[i] - lnmk_new[i] + np.log(self.T_list[i] / self.T_target)    # Test
-            # print(np.exp(lnnk_temp))
-            # exit()
             lnnk_new.append(lnnk_temp)
         lnnk_new = np.array(lnnk_new)
-        # print(f"lnnk new: ",lnnk_new)
 
         self.lnWk = lnw_norm
         self.lnnk = lnnk_new
@@ -127,21 +102,8 @@ class ITS:
         """U: potential energy"""
         U = U - pe_initial
         upper = logsumexp(self.lnnk + np.log(self.beta) - self.beta * U)
-        # print(f"upper: {np.sum(np.exp(self.lnnk) * self.beta * np.exp(- self.beta * U))}")
-        # print(f"upper: {np.exp(upper)}")
-        # exit()
         lower = logsumexp(self.lnnk - self.beta * U)
-        # print(f"lower: {np.sum(np.exp(self.lnnk) * np.exp(- self.beta * U))}")
-        # print(f"lower: {np.exp(lower)}")
-        # exit()
         S = np.exp(upper - lower) / self.beta_target
-        print(f"enhanced factor: {S}")
         
         lnPk = np.logaddexp(lnPk, self.lnnk - self.beta * U)
-        # print(np.exp(lnPk))
-        # print(f"lnPk: {lnPk}")
-        # Pk = np.zeros(len(self.beta))
-        # Pk = Pk + self.nk * np.exp(-self.beta * U)
-        # print(Pk)
-        # print(self.nk * np.exp(-self.beta * U))
         return S, lnPk
