@@ -6,7 +6,6 @@ from src.mtd.metadynamics import MTD
 from src.its.its_main import ITS
 from typing import Dict, Any
 from ase.io import read
-from xtb.ase.calculator import XTB 
 
 
 class SimulationSettings:
@@ -30,7 +29,6 @@ class SimulationSettings:
             elif self.thermostat.get('type') == 2:
                 print("Berendsen") 
                 self.tau = self.thermostat.get('tau', 200) * self.md.get("dt")
-        # print(self.md, self.mtd, self.its, self.nano)
 
         self.mtd = self.config.get("mtd", {})
         if self.mtd:
@@ -100,16 +98,4 @@ class System:
 
             np.savetxt(f"{vel_file}", self.v)
              
-        self.force = None
-
-        calculator_map = {
-                "GFN2-xTB": XTB(method="GFN2-xTB", accuracy=1.0, electronic_temperature=300, max_iterations=5000)
-            }
-        
-        self.Atom.calc = calculator_map[SimulationSettings().calculator_type]
-
-        if SimulationSettings().calculator_type not in calculator_map:
-                raise ValueError(f"Invalid calculator type: {SimulationSettings().calculator_type}. "
-                                 f"Valid options: {list(calculator_map.keys())}")
-
-        
+        self.force = None      

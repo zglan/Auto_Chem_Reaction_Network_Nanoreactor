@@ -40,6 +40,12 @@ def main():
                 T = 0.5 * np.sum(system.mass * system.v ** 2) / (1.5 * kb_au * system.N)
                 T_list.append(T)
 
+                # with open("coord.xyz", "a") as f:
+                #     f.write(str(system.xyz) + '\n')
+                
+                # with open("velocity.dat", "a") as g:
+                #     g.write(str(system.v) + '\n')
+
                 # # Update nk
                 if settings.its:
                     if _ % settings.doits.update_step == 0 and _ != 0 and os.path.exists('{dataPath}/nk.dat') is not True:
@@ -47,11 +53,20 @@ def main():
                         print(_)
 
             np.savetxt("T.dat", T_list)
+            plt.plot(T_list)
+            plt.savefig("T~t.png")
+            plt.close()
 
             if settings.its:
                 np.savetxt("lnnk.dat", settings.doits.lnnk_list)
                 np.savetxt("S.dat", settings.doits.S_list)
                 np.savetxt("U_ref.dat", settings.doits.pe_ref_list)
+                plt.plot(settings.doits.lnnk_list)
+                plt.savefig("lnnk.png")
+                plt.close()
+                plt.plot(settings.doits.S_list)
+                plt.savefig("Enhanced_Factor.png")
+                plt.close()
 
             if settings.nano:
                 np.savetxt(fname="Uwall.dat", X=settings.donano.Uwall_list)
