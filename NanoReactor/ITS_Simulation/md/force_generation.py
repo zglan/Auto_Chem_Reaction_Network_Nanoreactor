@@ -1,11 +1,11 @@
 from ase.units import Bohr, Hartree
 import numpy as np
-from xtb.ase.calculator import XTB 
 
 
 def force_xtb(system):
     """xtb-python checked!"""
     # print("Use GFN2-xTB")
+    from xtb.ase.calculator import XTB 
     system.Atom.set_positions(system.xyz * Bohr)
     system.Atom.calc = XTB(method="GFN2-xTB", accuracy=1.0, electronic_temperature=300, max_iterations=5000)
     U = system.Atom.get_potential_energy() / Hartree
@@ -68,18 +68,14 @@ def force_calculation(settings, system, nstep):
     if settings.its:
         if nstep == 0:
             settings.doits.pe_initial = U
-        else:
-            if settings.doits.pe_initial > U:
-                ck_new = np.exp(-settings.doits.beta * (U - settings.doits.pe_initial))
-                settings.doits.nk = settings.doits.nk * ck_new
-                settings.doits.pe_initial = U
+        # else:
+        #     if settings.doits.pe_initial > U:
+        #         ck_new = np.exp(-settings.doits.beta * (U - settings.doits.pe_initial))
+        #         settings.doits.nk = settings.doits.nk * ck_new
+        #         settings.doits.pe_initial = U
         settings.doits.pe_ref_list.append(settings.doits.pe_initial)
         S, settings.doits.lnPk = settings.doits.its_force(U=U_system, pe_initial=settings.doits.pe_initial, lnPk=settings.doits.lnPk)
         settings.doits.S_list.append(S)
-        # print(f"pe initial: {self.pe_initial}")
-        # print(f"Pk from force generation:\n {self.ITS.Pk}")
-        # print(f"U from force generation(do its):\n {U}")
-        # print("Enhance Factor:", S)
         force = S * force
 
     return force
